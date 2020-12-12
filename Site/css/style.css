@@ -154,7 +154,7 @@ header{
     height: 0.9rem;
     position: absolute;
     top: 0.8rem;
-    right: 0.8rem;
+    right: 1.4rem;
     pointer-events: none;
 }
 
@@ -184,6 +184,16 @@ header{
     background-color: var(--global-gray-light);
 }
 
+.c-text-field__response{
+    position: relative;
+}
+
+.c-text-field__star{
+    position: absolute;
+    bottom: 0.5rem;
+    right: 0.9rem;
+}
+
 .c-form__grid-like{
     display: flex;
     justify-content: center;
@@ -194,7 +204,7 @@ header{
 
 .c-like__symbol {
 	position: relative;
-	width: 24px;
+	width: 1.5rem;
 	fill: var( --global-color-neutral-x-light );
 	transform: scale(1);
 	transition: transform .5s cubic-bezier(0.175, 0.885, 0.32, 2.275);
