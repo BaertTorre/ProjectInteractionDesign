@@ -21,13 +21,17 @@
     --global-whitespace-xl: calc(var(--global-baseline) * 6); /* = 48px */
 
     /* colors */
-    --global-alpa: #6A0916;
-    --global-alpa-light: #bb3244;
-    --global-beta: #2b6792;
+    --global-alpa: #89303e;
+    --global-alpa-light: #a14252;
+    --global-beta: #4a6375;
 
     /* transitions */
     --global-transitionEasing-out: ease-out;
     --global-transitionDuration-alpha: .1s;
+
+    /* box shadows */
+    --global-alpa-boxshadow: 0 0 6px 3px rgb(137, 48, 77, 0.7);
+    --global-beta-boxshadow: 0 0 4px 2px rgb(74, 99, 117, 0.7);
 }
 
 html{
@@ -87,7 +91,7 @@ h1{
     border: 0.2rem solid var(--global-alpa);
     border-left: none;
     background-color: var(--global-alpa);
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0.9rem;
     transition: all 0.5s ease;
     outline: none;
     width:20px;
@@ -95,7 +99,7 @@ h1{
 }
 
 .c-text__email-submit:hover {
-    box-shadow: 0 0 8px 5px var(--global-alpa);
+    box-shadow: var(--global-alpa-boxshadow);
     background-color: var(--global-alpa-light);
     border-color: var(--global-alpa-light);
 }
@@ -103,7 +107,7 @@ h1{
 .c-text__email-submit:active, .c-text__email-submit:focus{
     border-color: var(--global-beta);
     background-color: var(--global-beta);
-    box-shadow: 0 0 5px 2px var(--global-beta);
+    box-shadow: var(--global-beta-boxshadow);
 }
 
 
@@ -123,13 +127,13 @@ h1{
 }
 
 .c-text__email-input:hover {
-    box-shadow: 0 0 8px 5px var(--global-alpa);
+    box-shadow: var(--global-alpa-boxshadow);
     border-color: var(--global-alpa-light);
 }
 
 .c-text__email-input:focus, .c-text__email-input:active{
     border-color: var(--global-beta);
-    box-shadow: 0 0 5px 2px var(--global-beta);
+    box-shadow: var(--global-beta-boxshadow);
 }
 
 .c-text__email-input::placeholder{
