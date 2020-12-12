@@ -23,7 +23,8 @@
     /* colors */
     --global-alpa: #89303e;
     --global-alpa-light: #a14252;
-    --global-beta: #4a6375;
+    --global-beta: #3d5a6e;
+    --global-beta-light: #4a98cf;
 
     /* transitions */
     --global-transitionEasing-out: ease-out;
@@ -41,6 +42,11 @@ html{
     min-height: 100vh;
     color: white;
     letter-spacing: 0.1rem;
+}
+
+::selection {
+    color: white;
+    background: var(--global-beta-light);
 }
 
 body {
