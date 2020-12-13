@@ -7,11 +7,16 @@ namespace Chuck_Norris_likes_api.Models
 {
     class LikesEntity : TableEntity
     {
-        public LikesEntity()
+        public LikesEntity()         // anders werkt await cloudTable.ExecuteQuerySegmentedAsync<RegistrationEntity>(rangeQuery, null); niet
+        {
+
+        }
+
+        public LikesEntity(string id, string category)
         {
             //Can be changed to whatevery you want
-            PartitionKey = this.Likes.ToString();
-            RowKey = this.Id; // Has to be unique for each row you add
+            PartitionKey = category;
+            RowKey = id; // Has to be unique for each row you add
 
         }
 
