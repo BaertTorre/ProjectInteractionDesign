@@ -18,18 +18,17 @@
             <img class="header-logo" src="./img/Logo.png" alt="Chuck Norris logo">
             <h1 class="header-title">CHUCK NORRIS</h1>
         </header>
-        <form class="">
-            <div class="c-subtitle">
-                <label for="categories" class="u-bold">Which type of crazy quotes do you want?</label>
-            </div>
-            <span class="c-custom-select">
-                <select class="c-form__select u-margin-bottom" name="categories" id="categories">
-                    <option value="everything">Give me everything</option>
-                </select>
-                <svg class="c-custom-select__symbol" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="42.624px" height="42.625px"
-                    viewBox="0 0 42.624 42.625" style="enable-background:new 0 0 42.624 42.625;" xml:space="preserve">
-                    <path d="M38.259,1.387c-0.146,0.078-0.242,0.146-0.302,0.203c-0.003,0.003-0.011,0.006-0.014,0.009
+        <div class="c-subtitle">
+            <label for="categories" class="u-bold">Which type of crazy quotes do you want?</label>
+        </div>
+        <span class="c-custom-select">
+            <select class="c-form__select u-margin-bottom" name="categories" id="categories">
+                <option value="everything">Give me everything</option>
+            </select>
+            <svg class="c-custom-select__symbol" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="42.624px" height="42.625px"
+                viewBox="0 0 42.624 42.625" style="enable-background:new 0 0 42.624 42.625;" xml:space="preserve">
+                <path d="M38.259,1.387c-0.146,0.078-0.242,0.146-0.302,0.203c-0.003,0.003-0.011,0.006-0.014,0.009
 			c-4.34,4.343-8.68,8.686-13.02,13.027c-0.952,0.952-1.905,1.905-2.857,2.858c-0.992,0.993-0.4,0.594-0.656,0.337
 			c-2.052-2.053-4.104-4.104-6.155-6.157c-2.611-2.612-5.224-5.227-7.836-7.84C6.62,3.026,4.917,0.574,3.531,0.712
 			C-1.565,1.219,0.354,8.444,0.354,12.14c0,3.001,0,6.002,0,9.003c0,1.549,1.934,2.85,2.892,3.809
@@ -67,84 +66,83 @@
 			c1.189-2.427,2.391-4.847,3.61-7.257C40.429,18.982,40.429,19.684,40.429,20.386z M40.429,14.158
 			c-2.664,5.132-5.231,10.317-7.757,15.526c-1.027,1.029-2.058,2.059-3.086,3.088c0.172-0.353,0.359-0.705,0.522-0.959
 			c3.83-6.004,7.205-12.301,10.32-18.725C40.429,13.445,40.429,13.801,40.429,14.158z" />
-                </svg>
+            </svg>
 
-            </span>
-            <div class="c-subtitle">
-                <p for="text-field" class="u-bold">Here you have your requested quote.</p>
+        </span>
+        <div class="c-subtitle">
+            <p for="text-field" class="u-bold">Here you have your requested quote.</p>
+        </div>
+        <div class="c-text-field c-text-field__response u-margin-bottons-xs">
+            <p id="quote-field"></p>
+            <div class="c-text-field__star">
+                <input class="o-hide-accessible c-like__input" type="checkbox" id="star">
+                <label class="c-like__label" for="star">
+                    <svg class="c-like__symbol" height="1rem" width="1rem" viewBox="0 -10 511.98685 511"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0" />
+                    </svg>
+                </label>
             </div>
-            <div class="c-text-field c-text-field__response u-margin-bottons-xs">
-                <p id="quote-field"></p>
-                <div class="c-text-field__star">
-                    <input class="o-hide-accessible c-like__input" type="checkbox" id="star">
-                    <label class="c-label c-like__label" for="star">
-                        <svg class="c-like__symbol" height="1rem" width="1rem" viewBox="0 -10 511.98685 511"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0" />
-                        </svg>
-                    </label>
-                </div>
-            </div>
-            <div class="c-form__textarea-grid u-margin-bottom">
-                <p class="c-form__like-text">
-                    16
-                </p>
-                <div class="c-form__grid-like">
-                    <input class="o-hide-accessible c-like__input" type="checkbox" id="like">
-                    <label class="c-label c-like__label" for="like">
-                        <svg class="c-like__symbol" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
-                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512"
-                            style="enable-background:new 0 0 512 512;" xml:space="preserve">
-                            <g>
-                                <path d="M53.333,224C23.936,224,0,247.936,0,277.333V448c0,29.397,23.936,53.333,53.333,53.333h64
+        </div>
+        <div class="c-form__textarea-grid u-margin-bottom">
+            <p class="c-form__like-text">
+                16
+            </p>
+            <div class="c-form__grid-like">
+                <input class="o-hide-accessible c-like__input" type="checkbox" id="like">
+                <label class="c-like__label" for="like">
+                    <svg class="c-like__symbol" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512"
+                        style="enable-background:new 0 0 512 512;" xml:space="preserve">
+                        <g>
+                            <path d="M53.333,224C23.936,224,0,247.936,0,277.333V448c0,29.397,23.936,53.333,53.333,53.333h64
 			                        c12.011,0,23.061-4.053,32-10.795V224H53.333z" />
-                            </g>
-                            <g>
-                                <path
-                                    d="M512,304c0-12.821-5.077-24.768-13.888-33.579c9.963-10.901,15.04-25.515,13.653-40.725
+                        </g>
+                        <g>
+                            <path
+                                d="M512,304c0-12.821-5.077-24.768-13.888-33.579c9.963-10.901,15.04-25.515,13.653-40.725
                                     c-2.496-27.115-26.923-48.363-55.637-48.363H324.352c6.528-19.819,16.981-56.149,16.981-85.333c0-46.272-39.317-85.333-64-85.333
                                     c-22.165,0-37.995,12.48-38.677,12.992c-2.517,2.027-3.989,5.099-3.989,8.341v72.341l-61.44,133.099l-2.56,1.301v228.651
                                     C188.032,475.584,210.005,480,224,480h195.819c23.232,0,43.563-15.659,48.341-37.269c2.453-11.115,1.024-22.315-3.861-32.043
                                     c15.765-7.936,26.368-24.171,26.368-42.688c0-7.552-1.728-14.784-5.013-21.333C501.419,338.731,512,322.496,512,304z" />
-                            </g>
-                        </svg>
-                    </label>
-                </div>
-                <div class="c-form__grid-like">
-                    <input class="o-hide-accessible c-like__input" type="checkbox" id="dislike">
-                    <label class="c-label c-like__label" for="dislike">
-                        <svg class="c-like__symbol" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
-                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512"
-                            style="enable-background:new 0 0 512 512;" xml:space="preserve">
-                            <g>
-                                <path d="M117.333,10.667h-64C23.936,10.667,0,34.603,0,64v170.667C0,264.064,23.936,288,53.333,288h96V21.461
+                        </g>
+                    </svg>
+                </label>
+            </div>
+            <div class="c-form__grid-like">
+                <input class="o-hide-accessible c-like__input" type="checkbox" id="dislike">
+                <label class="c-like__label" for="dislike">
+                    <svg class="c-like__symbol" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512"
+                        style="enable-background:new 0 0 512 512;" xml:space="preserve">
+                        <g>
+                            <path d="M117.333,10.667h-64C23.936,10.667,0,34.603,0,64v170.667C0,264.064,23.936,288,53.333,288h96V21.461
                            C140.395,14.72,129.344,10.667,117.333,10.667z" />
-                            </g>
-                            <g>
-                                <path
-                                    d="M512,208c0-18.496-10.581-34.731-26.347-42.667c3.285-6.549,5.013-13.803,5.013-21.333
+                        </g>
+                        <g>
+                            <path
+                                d="M512,208c0-18.496-10.581-34.731-26.347-42.667c3.285-6.549,5.013-13.803,5.013-21.333
                            c0-18.517-10.603-34.752-26.368-42.688c4.885-9.728,6.315-20.928,3.861-32.043C463.381,47.659,443.051,32,419.819,32H224
                            c-13.995,0-35.968,4.416-53.333,12.608v228.651l2.56,1.301l61.44,133.12V480c0,3.243,1.472,6.315,3.989,8.341
                            c0.683,0.512,16.512,12.992,38.677,12.992c24.683,0,64-39.061,64-85.333c0-29.184-10.453-65.515-16.981-85.333h131.776
                            c28.715,0,53.141-21.248,55.637-48.363c1.387-15.211-3.691-29.824-13.653-40.725C506.923,232.768,512,220.821,512,208z" />
-                            </g>
-                        </svg>
-                    </label>
-                </div>
-                <p class="c-form__dislike-text">
-                    3
-                </p>
-                <div></div>
-                <button id="buttonRefresh" type="button" class="c-form__grid-button">I WANT MORE!!</button>
+                        </g>
+                    </svg>
+                </label>
             </div>
-            <div class="c-subtitle">
-                <p class="u-bold">Have a look at your favorite quotes.</p>
-            </div>
-            <div class="c-text-field" id="favo-quotes">
+            <p class="c-form__dislike-text">
+                3
+            </p>
+            <div></div>
+            <button id="buttonRefresh" type="button" class="c-form__grid-button">I WANT MORE!!</button>
+        </div>
+        <div class="c-subtitle">
+            <p class="u-bold">Have a look at your favorite quotes.</p>
+        </div>
+        <div class="c-text-field" id="favo-quotes">
 
-            </div>
-        </form>
+        </div>
     </div>
 </body>
 

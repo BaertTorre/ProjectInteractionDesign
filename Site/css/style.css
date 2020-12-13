@@ -17,7 +17,7 @@
     --global-alpa-light: #a14252;
     --global-beta: #3d5a6e;
     --global-beta-light: #4a98cf;
-    --global-gray: #2e2d2d;
+    --global-gray: #2b2a2a;
     --global-gray-light: #424242;
 
     /* border */
@@ -126,6 +126,7 @@ header{
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+    cursor: pointer;
     width: 100%;
     height: 2.5em;
     background-color: var(--global-gray-light);
@@ -180,7 +181,7 @@ header{
     border: var(--global-border);
     border-radius: var(--global-border-radius);
     min-height: 10em;
-    padding: 0.5rem 1rem;
+    padding: 0rem 1rem;
     background-color: var(--global-gray-light);
 }
 
@@ -211,6 +212,10 @@ header{
 	will-change: transform;
 }
 
+.c-like__label{
+    cursor: pointer;
+}
+
 .c-like__input:checked + .c-like__label .c-like__symbol {
 	transform: scale(1.2);
 	fill: var(--global-beta);
@@ -218,6 +223,7 @@ header{
 
 /*----button----*/
 .c-form__grid-button{
+    cursor: pointer;
     width: 100%;
     font-family: inherit;
     letter-spacing: inherit;
