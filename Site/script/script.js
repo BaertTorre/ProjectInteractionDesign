@@ -6,6 +6,10 @@
 	let docStar
 	let quoteDic = {}
 	let docFavoQuotes
+	let docLike
+	let docDislike
+	let docLikeText
+	let docDislikeText
 
 	function capitalizeFirstLetter(string) {
 		return string.charAt(0).toUpperCase() + string.slice(1);
@@ -14,6 +18,7 @@
 	const showQuote = data => {
 		quoteDic.value = data.value;
 		quoteDic.id = data.id;
+		quoteDic.category = selectedCategory;
 		docQuote.innerHTML = quoteDic.value;
 	}
 
@@ -24,7 +29,6 @@
 		}
 		storedQuotes.push(quoteDic);
 		localStorage.setItem("favoQuotes", JSON.stringify(storedQuotes)); 				//store quotes
-		console.log(storedQuotes);
 		showFavoQuotes();
 	}
 
@@ -38,18 +42,19 @@
 				}
 			}
 			localStorage.setItem("favoQuotes", JSON.stringify(newStoredQuotes)); 				//store quotes
-			console.log(newStoredQuotes);
 		}
 		showFavoQuotes();
 	}
 
 	const showFavoQuotes = () => {
 		let storedQuotes = JSON.parse(localStorage.getItem("favoQuotes")); 			//get them back
-		let quotesHTML = "";
-		for (quote of storedQuotes) {
-			quotesHTML += `<p id="quote-field">${quote.value}</p>`;
+		if (storedQuotes != null) {
+			let quotesHTML = "";
+			for (quote of storedQuotes) {
+				quotesHTML += `<p id="quote-field">${quote.value}</p>`;
+			}
+			docFavoQuotes.innerHTML = quotesHTML;
 		}
-		docFavoQuotes.innerHTML = quotesHTML;
 	}
 
 	const showSelect = data => {
@@ -60,22 +65,27 @@
 		docCategories.innerHTML += htmlSelectText;
 	}
 
-	const checkLikesAndFavo = () => {
+	const checkFavo = () => {
 		// FAVO
 		if (localStorage.getItem("favoQuotes") != null) {
 			let storedQuotes = JSON.parse(localStorage.getItem("favoQuotes")); 			//get them back
-			let isFavo = false;
-			for (quote of storedQuotes) {
-				if (quote.id == quoteDic.id) {			// checken of de display qoute een favo qoute is
-					isFavo = true;
+			if (storedQuotes != null) {
+				let isFavo = false;
+				for (quote of storedQuotes) {
+					if (quote.id == quoteDic.id) {			// checken of de display qoute een favo qoute is
+						isFavo = true;
+					}
+				}
+				if (isFavo == true) {
+					docStar.checked = true;
+				}
+				else {
+					docStar.checked = false;
 				}
 			}
-			if (isFavo == true) {
-				docStar.checked = true;
-			}
-			else {
-				docStar.checked = false;
-			}
+		}
+		else {
+			docStar.checked = false;
 		}
 	}
 
@@ -92,7 +102,8 @@
 		const request = await fetch(url);
 		const data = await request.json();
 		showQuote(data);
-		checkLikesAndFavo();
+		checkFavo();
+		getLikes();
 	};
 
 	const getCategories = async () => {
@@ -104,16 +115,104 @@
 		showSelect(data);
 	};
 
-	document.addEventListener('DOMContentLoaded', function () {
-		docCategories = document.querySelector("#categories");
-		docQuote = document.querySelector("#quote-field");
-		docButton = document.querySelector("#buttonRefresh");
-		docStar = document.querySelector("#star");
-		docFavoQuotes = document.querySelector("#favo-quotes");
-		selectedCategory = docCategories.value;							// eerste item erin steken
+	const showLikes = (responseData) => {
+		docLikeText.innerHTML = responseData.likes;
+		docDislikeText.innerHTML = responseData.dislikes;
+	}
 
+	function getLikes() {
+		// zorgen dat de knop niet meer geliked is
+		docDislike.checked = false;
+		docLike.checked = false;
+
+		const url = 'http://localhost:7071/api/likes';
+		fetch(url, {
+			method: 'POST', // or 'PUT'
+			body: quoteDic.id, // data can be `string` or {object}!
+			headers: {
+				'Content-Type': 'application/json'
+			}
+		}).then(res => res.json())
+			.then(response => {
+				console.log(response);
+				showLikes(response);
+			})
+			.catch(error => console.error('Error:', error));
+	}
+
+	function postData(data) {
+		const url = 'http://localhost:7071/api/likes';
+		fetch(url, {
+			method: 'PUT', // or 'PUT'
+			body: JSON.stringify(data), // data can be `string` or {object}!
+			headers: {
+				'Content-Type': 'application/json'
+			}
+		}).then(res => res.json())
+			.then(response => {
+				console.log(response);
+				showLikes(response);
+			})
+			.catch(error => console.error('Error:', error));
+	}
+
+	const updateLikes = (isLiked) => {
+		let data
+		if (isLiked == true) {
+			if (docDislike.checked) {
+				docDislike.checked = false;
+				data = { "Likes": 1, "Dislikes": -1, "Category": quoteDic.category, "Id": quoteDic.id }
+			}
+			else {
+				data = { "Likes": 1, "Dislikes": 0, "Category": quoteDic.category, "Id": quoteDic.id }
+			}
+		}
+		else {
+			data = { "Likes": -1, "Dislikes": 0, "Category": quoteDic.category, "Id": quoteDic.id }
+		}
+		postData(data);
+	}
+
+	const updateDislikes = (isdisLiked) => {
+		let data
+		if (isdisLiked == true) {
+			if (docLike.checked) {
+				docLike.checked = false;
+				data = { "Likes": -1, "Dislikes": 1, "Category": quoteDic.category, "Id": quoteDic.id }
+			}
+			else {
+				data = { "Likes": 0, "Dislikes": 1, "Category": quoteDic.category, "Id": quoteDic.id }
+			}
+		}
+		else {
+			data = { "Likes": 0, "Dislikes": -1, "Category": quoteDic.category, "Id": quoteDic.id }
+		}
+		postData(data);
+	}
+
+	const addEventlisteners = () => {
 		docButton.addEventListener("click", function (event) {
 			getRandomQuote();
+		});
+
+		docLike.addEventListener("change", function (event) {
+			if (this.checked) {
+				// Checkbox is checked..
+				updateLikes(true);
+			} else {
+				// Checkbox is not checked..
+				updateLikes(false);
+			}
+		});
+
+		docDislike.addEventListener("change", function (event) {
+			if (this.checked) {
+				// Checkbox is checked..
+				updateDislikes(true);
+			} else {
+				// Checkbox is not checked..
+				updateDislikes(false);
+			}
 		});
 
 		docStar.addEventListener("change", function (event) {
@@ -130,7 +229,21 @@
 			selectedCategory = docCategories.value;
 			getRandomQuote();
 		}
+	}
 
+	document.addEventListener('DOMContentLoaded', function () {
+		docCategories = document.querySelector("#categories");
+		docQuote = document.querySelector("#quote-field");
+		docButton = document.querySelector("#buttonRefresh");
+		docStar = document.querySelector("#star");
+		docFavoQuotes = document.querySelector("#favo-quotes");
+		docLike = document.querySelector("#like");
+		docDislike = document.querySelector("#dislike");
+		docLikeText = document.querySelector("#likeText");
+		docDislikeText = document.querySelector("#dislikeText");
+		selectedCategory = docCategories.value;							// eerste item erin steken
+
+		addEventlisteners();
 		showFavoQuotes();
 		getCategories();
 		getRandomQuote();
