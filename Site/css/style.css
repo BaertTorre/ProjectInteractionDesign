@@ -4,7 +4,7 @@
     --global-font-fam: 'Bodoni MT', sans-serif;
 
     /* whitespace */
-    --global-baseline: 0.5em;
+    --global-baseline: 0.5rem;
     --global-whitespace-xxs: var(--global-baseline); /* = 8px */
     --global-whitespace-xs: calc(var(--global-baseline) * 2); /* = 16px */
     --global-whitespace-sm: calc(var(--global-baseline) * 3); /* = 24px */
@@ -15,8 +15,8 @@
     /* colors */
     --global-alpa: #89303e;
     --global-alpa-light: #a14252;
-    --global-beta: #3d5a6e;
-    --global-beta-light: #4a98cf;
+    --global-beta: #447494;
+    --global-beta-x-light: #4a98cf;
     --global-gray: #2b2a2a;
     --global-gray-light: #424242;
 
@@ -48,7 +48,7 @@ html{
 
 ::selection {
     color: white;
-    background: var(--global-beta-light);
+    background: var(--global-beta-x-light);
 }
 
 .o-container{
@@ -70,11 +70,12 @@ header{
 
 .header-title{
     font-family: 'Bodoni MT Poster', sans-serif;
+    text-align: center;
     font-size: 3em;
     font-weight: 400;
     line-height: 0.9em;
     margin-top: 0;
-    margin-bottom: var(--global-whitespace-sm);
+    margin-bottom: var(--global-whitespace-md);
     letter-spacing: 0.05em;
 }
 
@@ -114,6 +115,13 @@ header{
         margin-top: 3em;
         margin-bottom: 3em;
     }
+}
+
+.c-intro{
+    text-align: center;
+    margin-bottom: var(--global-whitespace-lg);
+    letter-spacing: 1px;
+    font-style: italic;
 }
 
 .c-subtitle{
@@ -201,12 +209,37 @@ header{
     align-items: center;
 }
 
+.c-text-field__favo{
+    display: grid;
+    grid-template-columns: auto 1rem;
+    column-gap: 0.5rem;
+}
+
+.c-field__favo-div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.c-field__favo-button{
+    padding: 0;
+    margin: 0;
+    background-color: inherit;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: var(--global-transition)
+}
+
+.c-field__favo-button:focus {
+    fill: var(--global-beta);
+}
+
 /* Like button */
 
 .c-like__symbol {
 	position: relative;
 	width: 1.5rem;
-	fill: var( --global-color-neutral-x-light );
 	transform: scale(1);
 	transition: transform .5s cubic-bezier(0.175, 0.885, 0.32, 2.275);
 	will-change: transform;
@@ -259,9 +292,13 @@ header{
 }
 
 .u-margin-bottom{
-    margin-bottom: 3em;
+    margin-bottom: 4rem;
+}
+
+.u-margin-bottom-sm{
+    margin-bottom: 3rem;
 }
 
 .u-margin-bottons-xs{
-    margin-bottom: 0.5em;
+    margin-bottom: 0.5rem;
 }

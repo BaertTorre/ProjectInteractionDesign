@@ -86,7 +86,7 @@ h1{
 }
 
 .c-text__email{
-    margin-top: 5rem;
+    margin-top: 1rem;
     display: flex;
 }
 
@@ -158,6 +158,14 @@ h1{
 
 .u-download__first{
     margin-right: 4%;
+}
+
+.u-margin-top{
+    margin-top: 2.5rem;
+}
+
+.u-italic{
+    font-style: italic;
 }
 
 /*========================= media query's ===================*/
