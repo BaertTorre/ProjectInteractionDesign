@@ -61,10 +61,6 @@ h1{
     letter-spacing: 0.2rem;
 }
 
-img {
-    height: auto;
-}
-
 
 /*========================= app ======================*/
 .container{
@@ -158,6 +154,7 @@ img {
 
 .c-text__download > img{
     width: 48%;
+    height: auto;
 }
 
 .u-download__first{
