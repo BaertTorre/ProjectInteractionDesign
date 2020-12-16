@@ -1,7 +1,7 @@
 :root {
     /* typography */
     --global-root-font-size: 16px;
-    --global-font-fam: 'Bodoni MT', sans-serif;
+    --global-font-fam: 'Bodoni MT', serif;
 
     /* whitespace */
     --global-baseline: 0.5rem;
@@ -38,6 +38,7 @@ html{
     font-size: var(--global-root-font-size);
     font-family: var(--global-font-fam);
     letter-spacing: 0.1em;
+    background-color: var(--global-gray);
     background-image: url(../img/Arend.png);
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -69,7 +70,7 @@ header{
 
 
 .header-title{
-    font-family: 'Bodoni MT Poster', sans-serif;
+    font-family: 'Bodoni MT Poster', serif;
     text-align: center;
     font-size: 3em;
     font-weight: 400;
@@ -170,6 +171,7 @@ header{
 .c-form__textarea-grid{
     display: grid;
     grid-template: auto / 1fr 1fr 1fr 1fr 2fr 5fr;
+    gap: 0.5rem;
 }
 
 .c-form__like-text{
@@ -271,7 +273,7 @@ header{
     transition: var(--global-transition);
 }
 
-.c-form__grid-button:hover, .c-form__grid-button:focus{
+.c-form__grid-button:hover {
     transform: translateY(-0.1em);
     background-color: var(--global-alpa-light);
     outline: none !important;

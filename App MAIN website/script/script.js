@@ -141,7 +141,7 @@
 		docDislike.checked = false;
 		docLike.checked = false;
 
-		const url = 'http://localhost:7071/api/likes';
+		const url = 'https://projectinteractionfunctionapp.azurewebsites.net/api/likes';
 		fetch(url, {
 			method: 'POST', // or 'PUT'
 			body: quoteDic.id, // data can be `string` or {object}!
@@ -150,14 +150,13 @@
 			}
 		}).then(res => res.json())
 			.then(response => {
-				console.log(response);
 				showLikes(response);
 			})
 			.catch(error => console.error('Error:', error));
 	}
 
 	function postData(data) {
-		const url = 'http://localhost:7071/api/likes';
+		const url = 'https://projectinteractionfunctionapp.azurewebsites.net/api/likes';
 		fetch(url, {
 			method: 'PUT', // or 'PUT'
 			body: JSON.stringify(data), // data can be `string` or {object}!
@@ -166,7 +165,6 @@
 			}
 		}).then(res => res.json())
 			.then(response => {
-				console.log(response);
 				showLikes(response);
 			})
 			.catch(error => console.error('Error:', error));
@@ -250,9 +248,9 @@
 	const addEventlistenersFavoButtons = () => {
 		for (let docFavoButton of docFavoButtons) {
 			docFavoButton.addEventListener("click", function (event) {
-				setTimeout(() => { 
+				setTimeout(() => {
 					deleteQuote(this.value);
-					checkFavo(); 
+					checkFavo();
 				}, 300);
 			});
 		}
